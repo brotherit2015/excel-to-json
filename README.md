@@ -35,6 +35,7 @@ Cocos Creator插件
 
 ![excel](https://github.com/brotherit2015/excel-to-json/blob/master/doc/2.png)  
 
+
 ### 生成示例
 
 #### json
@@ -149,3 +150,4 @@ chokidar -- 目录扫描
 然后在扩展商店找到了excel-killer  
 大概需求能满足, 主要还是一直在进行游戏的开发, 有些腻  
 正好学习一下插件开发 借鉴了excel-killer 并根据自己需求改进一下~
+
