@@ -22,17 +22,17 @@ Cocos Creator插件
 
 ## 使用说明
 
-![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)  
-![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)  
-![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)  
-![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)  
+![help](https://github.com/brotherit2015/excel-to-json/blob/master/doc/1.png)  
+![help](https://github.com/brotherit2015/excel-to-json/blob/master/doc/excel.png)  
+![help](https://github.com/brotherit2015/excel-to-json/blob/master/doc/json.png)  
+![help](https://github.com/brotherit2015/excel-to-json/blob/master/doc/csv.png)  
 
 ### excel 格式
 \*第一行 key 字段  
 \*第二行 key说明  
 \*第三行 客户端标识  c/s/w..  
 
-![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)  
+![RUNOOB 图标](https://github.com/brotherit2015/excel-to-json/blob/master/doc/2.png)  
 
 ### 生成示例
 
