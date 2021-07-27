@@ -22,17 +22,18 @@ Cocos Creator插件
 
 ## 使用说明
 
-![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)  
-![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)  
-![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)  
-![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)  
+![help](https://github.com/brotherit2015/excel-to-json/blob/master/doc/1.png)  
+![help](https://github.com/brotherit2015/excel-to-json/blob/master/doc/excel.png)  
+![help](https://github.com/brotherit2015/excel-to-json/blob/master/doc/json.png)  
+![help](https://github.com/brotherit2015/excel-to-json/blob/master/doc/csv.png)  
 
 ### excel 格式
 \*第一行 key 字段  
 \*第二行 key说明  
 \*第三行 客户端标识  c/s/w..  
+\*数据读取是从第4行开始,若要修改 /panel/index.js 49行 startNum 变量  
 
-![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)  
+![excel](https://github.com/brotherit2015/excel-to-json/blob/master/doc/2.png)  
 
 ### 生成示例
 
@@ -147,4 +148,4 @@ chokidar -- 目录扫描
 目前到数值这块, 网上的转json格式太繁琐, 想比较快速, 智能一些  
 然后在扩展商店找到了excel-killer  
 大概需求能满足, 主要还是一直在进行游戏的开发, 有些腻  
-正好学习一下插件开发 并根据自己需求改进一下~
+正好学习一下插件开发 借鉴了excel-killer 并根据自己需求改进一下~

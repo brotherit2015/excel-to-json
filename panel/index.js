@@ -37,7 +37,7 @@ Editor.Panel.extend({
           xls: true,
           xlsx: true
         },
-        git: 'https://github.com/brotherit2015',
+        git: 'https://github.com/brotherit2015/excel-to-json',
         enableFindFiles: true,
         excelArr: [],
         fileList: [],
@@ -46,7 +46,7 @@ Editor.Panel.extend({
         allSelect: false,
         updNameVal: '',
         saveList: {},
-        startNum: 2, //开始行号 (3表示从第四行开始)
+        startNum: 2, //开始行号 (2表示从第四行开始)
         csvKeys: {},
         enableRefreshRes: false
       },
@@ -359,7 +359,7 @@ ${obj.filename}----${obj.sheetName}`)
               if (tool.cs(cs[j])) keys.push(j)
             }
             this.csvKeys[files[i].sheetName] = keys
-            arr.splice(0,this.startNum)
+            arr.splice(0, this.startNum)
             let tmpObj = {}
             let tmpArr = []
             

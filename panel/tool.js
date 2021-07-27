@@ -80,7 +80,6 @@ module.exports = {
         obj.clientSignObj = data.clientSignObj
         obj.fileExtObj = data.fileExtObj
         obj.enableJson = data.enableJson
-        obj.startNum = data.startNum
         
         fs.writeJson(userCfgPath, obj, err => {
             if (!err) this.log('配置保存成功', 0)
