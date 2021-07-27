@@ -1,0 +1,184 @@
+.wrapper {
+    height: 100%;
+    box-sizing: border-box;
+}
+.top-btn {
+    width: 550px;
+    margin: 10px auto 0;
+    /* border: 1px solid red; */
+}
+.ml-10 {
+    margin-left: 10px;
+}
+.top-btn {
+    position: relative;
+}
+.top-btn .btn-item {
+    /* display: inline-block; */
+    border: 1px solid #CCCCCC;
+    padding: 10px 20px;
+    margin-right: 10px;
+}
+.top-btn .cur-btn {
+    border-bottom: 1px solid #454545;
+    z-index: 10;
+}
+.tab {
+    width: 580px;
+    height: 200px;
+    margin: -1px auto 0;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tab-help {
+    position: relative;
+}
+.tab-box {
+    width: 540px;
+    height: 160px;
+    /* border: 1px solid red; */
+}
+.title {
+    text-align: center;
+    color: #FFFF00;
+}
+.row {
+    margin-bottom: 10px;
+}
+.row .name {
+    width: 100px;
+    text-align: right;
+}
+.input {
+    width: 260px;
+}
+.save-cfg {
+    background: #3fff00;
+    color: #f66;
+    position: absolute;
+    right: 8px;
+    top: 15px;
+    width: 100px;
+}
+
+.read {
+    position: absolute;
+    right: 80px;
+    top: 0;
+}
+.save {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.list {
+    width: 580px;
+    margin: -1px auto 0;
+    border: 1px solid #ccc;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.list-box {
+    height: 250px;
+    overflow-y: auto;
+}
+
+.th {
+    display: flex;
+    margin-bottom: 5px;
+    /* border:1px solid red; */
+    height: 25px;
+    align-items: center;
+    overflow: hidden;
+}
+.th-1 {
+    padding: 0 10px;
+}
+
+
+.list .sn {
+    width: 80px;
+    position: relative;
+}
+.sheet {
+    overflow: auto;
+}
+
+.log {
+    width: 580px;
+    height:150px;
+    margin: -1px auto 0;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+.log .txt {
+    margin-bottom: 5px;
+}
+.p-th {
+    width: 100%;
+    box-sizing: border-box;
+    color: rgb(180, 77, 77);
+}
+.p-bg-0 {
+    background: rgb(36, 36, 36);
+}
+.p-bg-1 {
+    background: #5c5c5c;
+}
+
+.textarea {
+    background: #454545;
+    width: 100%;
+    height: 100%;
+    resize: none;
+}
+.success {
+    color: rgb(43, 255, 0);
+}
+.warning {
+    color:rgb(255, 152, 35)
+}
+.error {
+    color: red;
+}
+.c-btn {
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 70%;
+    height: 100%;
+    cursor: pointer;
+}
+.bottom-btn {
+    width: 580px;
+    margin: 5px auto 0;
+    position: relative;
+}
+.clear-log {
+    margin-right: 10px;
+}
+
+.auto-res {
+    position: absolute;
+    right: 0;
+}
+.contact {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-radius: 3px;
+    border: 1px solid rgb(151, 150, 150);
+    text-decoration:none;
+    cursor: pointer;
+}
+a:hover{
+    text-decoration:none
+}

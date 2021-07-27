@@ -1,0 +1,132 @@
+<div class="wrapper">
+    <div class="">
+        <div class="top-btn layout horizontal start-justified">
+            <span class="btn-item {{curIdx===0?'cur-btn':''}}" @click="changeTab(0)">Excel</span>
+            <span class="btn-item {{curIdx===1?'cur-btn':''}}" @click="changeTab(1)">Json</span>
+            <span class="btn-item {{curIdx===2?'cur-btn':''}}" @click="changeTab(2)">Csv</span>
+            <span class="btn-item {{curIdx===3?'cur-btn':''}}" @click="changeTab(3)">使用说明</span>
+        </div>
+        
+        <ui-button class="save-cfg" @confirm="saveCfg">保存配置</ui-button>
+        <div class="tab">
+            <div class="tab-box" v-show="curIdx===0">
+                <div class="row title">
+                     excel配置文件基本格式 
+                     第一行:key 
+                     第二行:key说明 
+                     第三行:客户端标识c/s/cs 
+                     第四行:字段类型
+                </div>
+                <div class="row layout horizontal center">
+                    <span class="name" >文件目录:</span>
+                    <ui-input class="ml-10 input" :value="excelPath" readonly></ui-input>
+                    <ui-button class="ml-10" @click="setExcelPath()" >配置</ui-button>
+                </div>
+                <div class="row layout horizontal center">
+                    <span class="name">子目录:</span>
+                    <ui-checkbox class="ml-10" @change="enableDepthSwitch" :checked="depthObj.checked"></ui-checkbox>
+                </div>
+                
+                <div class="row layout horizontal center">
+                    <span class="name">客户端标识:</span>
+                    <ui-checkbox class="ml-10" @change="clientSignC" :checked="clientSignObj.c">c</ui-checkbox>
+                    <ui-checkbox class="ml-10" @change="clientSignS" :checked="clientSignObj.s">s</ui-checkbox>
+                </div>
+
+                <div class="row layout horizontal center">
+                    <span class="name">excel版本:</span>
+                    <ui-checkbox class="ml-10" @change="xlsxSwitch" :checked="fileExtObj.xlsx">xlsx</ui-checkbox>
+                    <ui-checkbox class="ml-10" @change="xlsSwitch" :checked="fileExtObj.xls">xls</ui-checkbox>
+                </div>
+            </div>
+            <div class="tab-box" v-show="curIdx===1">
+                <div class="row layout horizontal center">
+                    <span class="name">生成json:</span>
+                    <ui-checkbox class="ml-10" @change="enableJsonSwitch" :checked="enableJson"></ui-checkbox>
+                </div>
+                <div class="row layout horizontal center">
+                    <span class="name" >导出目录:</span>
+                    <ui-input class="ml-10 input" :value="jsonPath" readonly></ui-input>
+                    <ui-button class="ml-10" @click="setJsonPath()" >配置</ui-button>
+                </div>
+                <div class="row layout horizontal center">
+                    <span class="name">主键id:</span>
+                    <ui-checkbox class="ml-10" @change="idKeySwitch" :checked="enableIdKey">id作为Key</ui-checkbox>
+                    <!-- <ui-checkbox class="ml-10" @change="keepIdSwitch" :checked="enableKeepId">保留id</ui-checkbox> -->
+                </div>
+
+                <div class="row layout horizontal center">
+                    <span class="name">合并:</span>
+                    <ui-checkbox class="ml-10" @change="enableJsonMergeSwitch" :checked="enableJsonMerge"></ui-checkbox>
+                </div>
+            </div>
+            <div class="tab-box" v-show="curIdx===2">
+                <div class="row layout horizontal center">
+                    <span class="name">生成csv:</span>
+                    <ui-checkbox class="ml-10" @change="enableCsvSwitch" :checked="enableCsv"></ui-checkbox>
+                </div>
+                <div class="row layout horizontal center">
+                    <span class="name" >导出目录:</span>
+                    <ui-input class="ml-10 input" :value="csvPath" readonly></ui-input>
+                    <ui-button class="ml-10" @click="setCsvPath()" >配置</ui-button>
+                </div>
+            </div>
+            <div class="tab-box tab-help" v-show="curIdx===3">
+                <p>当前版本 v0.0.1, github地址: <a :href="git">浏览项目</a></p>
+                <p>基本说明:<br />
+                    支持导出到resources子目录,自动刷新资源管理器.<br />
+                    自定义导出字段.<br />
+                </p>
+                <p>切换至不同标签查看更多配置, <a :href="git">github</a>有详细文档</p>
+                <p>小白一枚,后端开发,目前正在开发自己的游戏.</p>
+
+                <a class="contact" href="http://wpa.qq.com/msgrd?v=3&uin=859666262&site=qq&menu=yes" >QQ: 859666262</a>
+            </div>
+        </div>
+        <hr>
+
+        <div class="top-btn layout horizontal start-justified">
+            <span class="btn-item cur-btn">文件列表</span>
+
+            <ui-button class="read" @confirm="refresh">刷新</ui-button>
+            <ui-button class="save" @confirm="read">生成</ui-button>
+        </div>
+        <div class="list">
+            <div class="th th-1">
+                <div class="sn ">
+                    <ui-checkbox :checked="allSelect" readonly>序号</ui-checkbox>
+                    <div class="c-btn" @click="selectAll"></div>
+                </div>
+                <div class="sheet flex-1">Sheet</div>
+                <div class="path flex-2">路径</div>
+                <div class="path flex-1">临时改名</div>            
+            </div>
+            <div class="list-box">
+
+                <div class="th th-1" :class="idx%2===0?'p-bg-1':''"  v-for="(idx, item) in fileList">
+                    <div class="sn ">
+                        <ui-checkbox :checked="item.checked" unnavigable readonly>{{idx + 1}}</ui-checkbox>
+                        <div class="c-btn" @click="selectItem(idx)"></div>
+                    </div>
+                    <div class="sheet flex-1" :class="item.num>0?'error':''">{{item.sheetName}}</div>
+                    <div class="path flex-2">{{item.path + item.filename}}</div>        
+                    <div class="new-name flex-1">
+                        <ui-input class="new-name" :value="item.saveName" @change="inputChange"  @blur="updName(idx, item.saveName)"></ui-input>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <hr />
+        <div class="log" >
+            <textarea class="textarea" :class="logType" :value="logText" disabled></textarea>
+        </div>
+        <div class="bottom-btn">
+            <ui-button class="clear-log" @confirm="clearLog">清空日志</ui-button>
+            <ui-button class="clear-log" @confirm="refreshRes">刷新资源目录</ui-button>
+            <ui-checkbox class="auto-res" @change="refreshResSwitch" :checked="enableRefreshRes">自动刷新资源目录</ui-checkbox>
+        </div>
+    </div>
+</div>
