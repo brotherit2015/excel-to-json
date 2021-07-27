@@ -215,7 +215,12 @@ ${obj.filename}----${obj.sheetName}`)
 
         // 监听目录 有excel文件操作
         watchDir () {
-          if (!this.excelPath || !fs.statSync(this.excelPath).isDirectory()) return
+          try {
+            if (!this.excelPath || !fs.statSync(this.excelPath).isDirectory()) return
+          } catch (error) {
+            cc.log(error)
+          }
+          
           chokidar.watch(this.excelPath, {depth: this.depthObj.depth})
           .on('all', (e, path) => {
             if (tool.inarray(this.fileExtObj.arr, tool.ext(path))) {
