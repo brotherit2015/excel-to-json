@@ -28,6 +28,7 @@ Cocos Creator插件
 ![help](https://github.com/brotherit2015/excel-to-json/blob/master/doc/csv.png)  
 
 ### excel 格式
+
 \*第一行 key 字段  
 \*第二行 key说明  
 \*第三行 客户端标识  c/s/w..  
