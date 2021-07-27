@@ -46,7 +46,7 @@ Editor.Panel.extend({
         allSelect: false,
         updNameVal: '',
         saveList: {},
-        startNum: 3, //开始行号 (3表示从第五行开始)
+        startNum: 2, //开始行号 (3表示从第四行开始)
         csvKeys: {},
         enableRefreshRes: false
       },

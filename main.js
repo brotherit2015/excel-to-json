@@ -11,6 +11,9 @@ module.exports = {
 
   // register your ipc messages here
   messages: {
-
+    'open' () {
+      // open entry panel registered in package.json
+      Editor.Panel.open('excel-to-json');
+    },
   },
 };
